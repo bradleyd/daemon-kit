@@ -1,13 +1,7 @@
 task :environment do
   $daemon_kit_rake_task = true
 
-  begin
-    # require statements for ruby < 1.9.1:
-    require 'config/environment'
-  rescue LoadError
-    # require for statements for ruby > 1.9.1
-    require './config/environment'
-  end
+  require './config/environment'
   DaemonKit::Application.running!
 end
 
